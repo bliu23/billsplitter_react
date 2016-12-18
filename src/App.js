@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       numPeople: '',
-      peopleOwe: []
+      num: '',
     };
   }
 
@@ -19,20 +19,15 @@ class App extends React.Component {
     It also generates the array passed into InputList.
   */
   handleParty = (event) => {
-    this.setState({ numPeople: event.target.value })
+    this.setState({ num: event.target.value})
+
   }
 
   /*
     This function generates an array based off of the size of the party, and 
   */
   handleClick = () => {
-    // var ppl = [];
-    // for (var i = 0; i < this.state.numPeople; i++) {
-    //   ppl.push(0);
-    // }
-    // this.setState({ peopleOwe: ppl }, () => {
-    //   console.log('app.js:', ppl.join(', '));
-    // });
+    this.setState({ numPeople: this.state.num })
   }
 
 
@@ -43,13 +38,13 @@ class App extends React.Component {
           <h1>Billsplitter</h1>
           <label>
             <span>How many people are in your party?</span>
-            <input type="text" value={this.state.numPeople} onChange={this.handleParty} />
+            <input type="text" value={this.state.num} onChange={this.handleParty} />
           </label>
           <input type="submit" value="Submit" onClick={this.handleClick} />
 
           <AddValue />
 
-          <InputList peopleOwe={this.state.peopleOwe} numPeople={this.state.numPeople} />
+          <InputList numPeople={this.state.numPeople} />
         </div>
 
       </div>

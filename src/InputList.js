@@ -6,7 +6,7 @@ class InputList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      people: [0, 0, 0, 0],
+      people: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     };
   }
 
@@ -22,7 +22,6 @@ class InputList extends Component {
     ppl[index] = parseInt(ppl[index]) + parseInt(value);
     console.log(ppl[index]);
     this.setState({people: ppl, amt: value}, () => {
-      console.log('people:', this.state.people.join(', ')) 
     })
 
   }
@@ -30,6 +29,7 @@ class InputList extends Component {
 
   render() {
     var people = [];
+    console.log('NumPeople:', this.props.numPeople);
     for (let i = 0; i < this.props.numPeople; i++) {
       people.push(<Individual index={i} key={i} addVal={this.addValueFunction} totalVal={this.state.people[i]} />)  
     }
